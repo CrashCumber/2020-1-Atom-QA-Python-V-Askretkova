@@ -31,7 +31,6 @@ class TestList:
         """Проверка умножения списков"""
         with pytest.raises(TypeError):
             self.list_test *= self.list_test
-            assert True
 
     def test_5(self):
         """ Проверка эквивалентиности среза и разворота списка"""

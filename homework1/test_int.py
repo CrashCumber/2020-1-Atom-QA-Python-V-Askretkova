@@ -11,7 +11,6 @@ def test_1(data):
     """Прибавление целого числа к другим типам данных"""
     with pytest.raises(TypeError):
         data += 4
-        assert False
 
 
 class TestInt:
@@ -45,3 +44,4 @@ class TestInt:
             assert - 1 == (data // (data + 1000))
         else:
             assert 0 == (data // (data + 1000))
+ 

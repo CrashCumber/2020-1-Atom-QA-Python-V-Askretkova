@@ -3,14 +3,13 @@ import pytest
 
 
 @pytest.mark.parametrize("data", [{1, 2},
-	                              (1, 2),
-	                              1,
-                                1.3])
+                                  (1, 2),
+                                  1,
+                                  1.3])
 def test_1(data):
     """Прибавление строки к другим типам данных"""
     with pytest.raises(TypeError):
         data += 'abc'
-        assert False
 
 
 class TestString:
@@ -22,12 +21,14 @@ class TestString:
         """Преобразование строки к другим типам данных"""
         assert data == exp
 
-    @pytest.mark.parametrize("data", ['hello {}'.format('world'),
-                                      '{} {}'.format('hello', 'world'),
-                                      '{1} {0}'.format('world', 'hello')])
+    @pytest.mark.parametrize("data", ['hello, {}'.format('world'),
+                                      '{}, {}'.format('hello', 'world'),
+                                      '{1}, {0}'.format('world', 'hello'),
+                                      f"{'hello'}, {'world'}",
+                                      "%s, %s" % ('hello', 'world')])
     def test_3(self, data):
         """Форматированные строки """
-        assert data == 'hello world'
+        assert data == 'hello, world'
 
 
     @pytest.mark.parametrize("data", ["abc", r'abc'])
@@ -43,4 +44,4 @@ class TestString:
         """Умножение строки на другие типы данных"""
         with pytest.raises(TypeError):
             data *= 'abc'
-            assert False
+        

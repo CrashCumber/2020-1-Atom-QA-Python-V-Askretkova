@@ -18,13 +18,11 @@ class TestSet:
         """Проверка сложения множеств"""
         with pytest.raises(TypeError):
             self.set_test += self.set_test
-            assert True
 
     def test_3(self):
         """Проверка умножения множеств"""
         with pytest.raises(TypeError):
             self.set_test *= self.set_test
-            assert True
 
     def test_4(self):
         """ Проверка эквивалентиности множеств с одинаковыми элементами"""

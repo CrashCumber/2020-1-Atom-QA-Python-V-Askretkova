@@ -26,13 +26,11 @@ class TestDict:
         """Проверка сложения словаря"""
         with pytest.raises(TypeError):
             self.dct_test += self.dct_test
-            assert True
 
     def test_4(self):
         """Проверка умножения словаря"""
         with pytest.raises(TypeError):
             self.dct_test *= self.dct_test
-            assert True
 
     def test_5(self):
         """ Проверка обновления ключа словаря"""

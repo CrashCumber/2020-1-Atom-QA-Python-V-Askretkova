@@ -46,17 +46,18 @@ def driver(config):
     browser = config['browser']
     version = config['version']
     url = config['url']
-    manager = ChromeDriverManager(version=version)
-    driver = webdriver.Chrome(executable_path=manager.install())
-    # if not browser:
-    #     options = ChromeOptions()
-    #     capabilities = {'acceptInsecureCerts': True,
-    #                     'browserName': 'chrome',
-    #                     'version': version}
-    #     driver = webdriver.Remote(command_executor='http://127.0.0.1:4444/wd/hub/',
-    #                               options=options,
-    #                               desired_capabilities=capabilities)
-
+    selenoid = config['selenoid']
+    if not selenoid:
+        manager = ChromeDriverManager(version=version)
+        driver = webdriver.Chrome(executable_path=manager.install())
+    else:
+        options = ChromeOptions()
+        capabilities = {'acceptInsecureCerts': True,
+                        'browserName': 'chrome',
+                        'version': '80.0'}
+        driver = webdriver.Remote(command_executor=selenoid,
+                                  options=options,
+                                  desired_capabilities=capabilities)
     driver.get(url)
     driver.maximize_window()
     yield driver

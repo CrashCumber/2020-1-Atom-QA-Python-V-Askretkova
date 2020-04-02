@@ -9,7 +9,6 @@ from ui.fixtures import *
 
 class TestUI(BaseCase):
 
-    @pytest.mark.skip(reason='TEMP')
     @pytest.mark.UI
     def test_good_authorization(self):
         user = 'asktechnoatom@mail.ru'
@@ -18,7 +17,6 @@ class TestUI(BaseCase):
         res = self.base_page.find(self.base_page.locators.MY_DATA_IN_CORNER).is_displayed()
         assert 'https://target.my.com/campaigns/list' == self.driver.current_url
 
-    @pytest.mark.skip(reason='TEMP')
     @pytest.mark.UI
     def test_bad_authorization(self):
         user = 'asktechnoatom@mail.ru'
@@ -26,7 +24,6 @@ class TestUI(BaseCase):
         self.base_page.authorization(user, password)
         assert 'https://target.my.com/campaigns/list' != self.driver.current_url
 
-    @pytest.mark.skip(reason='TEMP')
     @pytest.mark.UI
     def test_create_segment(self, auto):
         self.base_page = auto

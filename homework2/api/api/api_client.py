@@ -48,7 +48,7 @@ class ApiClient:
                 ],
                 "logicType": "or"}
         data = json.dumps(data)
-        location = 'https://target.my.com/api/v2/remarketing/segments.json?fields=relations__object_type,relations__object_id,relations__params,relations_count,id,name,pass_condition,created,campaign_ids,users,flags'
+        location = 'https://target.my.com/api/v2/remarketing/segments.json'
         headers = {'Content-Type': 'application/json',
                    'X-CSRFToken': self.get_token(),
                    'Referer': 'https://target.my.com/segments/segments_list/new',

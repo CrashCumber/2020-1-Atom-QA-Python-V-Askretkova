@@ -3,7 +3,7 @@ from selenium.common.exceptions import StaleElementReferenceException
 from selenium.webdriver.remote.webelement import WebElement
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
-from ui.locators.locators import BaseLocators
+from ui.ui.locators.locators import BaseLocators
 
 RETRY_COUNT = 3
 

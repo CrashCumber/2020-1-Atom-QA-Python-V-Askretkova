@@ -4,7 +4,7 @@ import selenium
 from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.common.by import By
 from base_ui import BaseCase
-from ui.fixtures import *
+from ui.ui.fixtures import *
 
 
 class TestUI(BaseCase):

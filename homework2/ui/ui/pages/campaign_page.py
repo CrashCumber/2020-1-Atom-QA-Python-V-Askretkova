@@ -1,6 +1,6 @@
 import time
 from .base_page import BasePage
-from ui.locators.locators import CampaignPageLocators
+from ui.ui.locators.locators import CampaignPageLocators
 
 
 class CampaignPage(BasePage):

@@ -1,5 +1,5 @@
 from .base_page import BasePage
-from ui.locators.locators import CreateSegmentPageLocators
+from ui.ui.locators.locators import CreateSegmentPageLocators
 import time
 
 

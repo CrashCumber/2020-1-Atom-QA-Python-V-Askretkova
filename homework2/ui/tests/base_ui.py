@@ -1,10 +1,10 @@
 import pytest
-from ui.fixtures import *
-from ui.pages.base_page import BasePage
-from ui.pages.campaign_page import CampaignPage
-from ui.pages.create_segment_page import CreateSegmentPage
-from ui.pages.segments_page import SegmentsPage
-from ui.pages.create_campaign_page import CreateCampaignPage
+from ui.ui.fixtures import *
+from ui.ui.pages.base_page import BasePage
+from ui.ui.pages.campaign_page import CampaignPage
+from ui.ui.pages.create_segment_page import CreateSegmentPage
+from ui.ui.pages.segments_page import SegmentsPage
+from ui.ui.pages.create_campaign_page import CreateCampaignPage
 
 
 class BaseCase:

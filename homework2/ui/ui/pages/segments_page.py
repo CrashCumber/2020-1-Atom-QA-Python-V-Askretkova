@@ -1,5 +1,5 @@
 from .base_page import BasePage
-from ui.locators.locators import SegmentsPageLocators
+from ui.ui.locators.locators import SegmentsPageLocators
 
 
 class SegmentsPage(BasePage):

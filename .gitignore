@@ -3,4 +3,7 @@ __pycache__
 *.pyc
 Pipfile*
 *.DS_Store
+cm
+homework2/.idea
+*.idea
  

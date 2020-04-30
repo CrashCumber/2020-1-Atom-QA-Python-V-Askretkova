@@ -6,4 +6,4 @@ Pipfile*
 cm
 homework2/.idea
 *.idea
- 
+*.pytest_cache

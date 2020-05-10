@@ -1,9 +1,6 @@
-
-import time
-
 import pytest
-
 import requests
+
 
 class TestLinux:
 
@@ -15,7 +12,6 @@ class TestLinux:
 
         data = self.ssh_client.exec_cmd('echo centos | sudo -S cat /var/log/messages ')
         assert not(data.find('centos') == -1)
-
 
     def test_nginx_ssh(self):
 

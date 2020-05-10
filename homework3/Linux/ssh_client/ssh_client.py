@@ -35,8 +35,3 @@ class SSH:
 
         return data
 
-
-if __name__ == '__main__':
-
-    with SSH(hostname='0.0.0.0', port=8000) as ssh:
-        pass

@@ -162,10 +162,12 @@ def write_in_record(data, file):
         print(data, file=file)
 
 
-
 if __name__ == '__main__':
 
-    path = input()
+    path = input('Give me path to directory with logs: ')
+
+    if path and path[0] == '~':
+        path = os.path.expanduser(path)
 
     if not path:
         path = ''
@@ -183,11 +185,11 @@ if __name__ == '__main__':
         with open(path_file) as file:
             logs = file.readlines()
 
-            name = f'{path_file[path_file.rfind("/")+1:len(path_file)-4]}_record'
-            with open(f'{name}.py', 'w') as record:
+            name = f'{path_file[path_file.rfind("/")+1:len(path_file)-4]}_report'
+            with open(f'{name}', 'w') as record:
 
                 top_requests_client_error_mas = top_requests_client_error(logs)
-                top_requests_server_mas = top_requests_redirect(logs)
+                top_requests_redirect_mas = top_requests_redirect(logs)
                 top_size_requests_mas = top_size_requests(logs)
                 num_requests_mas = num_requests(logs)
                 num_requests_by_method_mas = num_requests_by_method(logs)
@@ -204,19 +206,20 @@ if __name__ == '__main__':
                 write_in_record(top_requests_client_error_mas, record)
                 print("##############", file=record)
 
-                write_in_record(top_requests_server_mas, record)
+                write_in_record(top_requests_redirect_mas, record)
 
                 with open(f'{name}.json', 'w') as json_record:
                     num = {"count": num_requests_mas[0]}
 
-                    json.dump(num, json_record, indent=3)
+                    lst = [
+                           num,
+                           num_requests_by_method_mas,
+                           num_requests_mas,
+                           top_requests_client_error_mas,
+                           top_size_requests_mas,
+                           top_requests_redirect_mas
+                           ]
 
-                    json.dump(num_requests_by_method_mas, json_record, indent=3)
-
-                    json.dump(top_size_requests_mas, json_record, indent=3)
-
-                    json.dump(top_requests_client_error_mas, json_record, indent=3)
-
-                    json.dump(top_requests_server_mas, json_record, indent=3)
+                    json.dump(lst, json_record, indent=3)
 
 

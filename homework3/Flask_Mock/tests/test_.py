@@ -1,5 +1,3 @@
-import json
-
 import pytest
 import requests
 from mock.mock import server_data, client_data
@@ -54,4 +52,3 @@ class TestMockClient:
         url = f'http://{self.host}:{self.port}/badurl'
         response = requests.get(url=url)
         assert response.status_code != 200
-

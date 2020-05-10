@@ -1,4 +1,8 @@
+import os
+
 from logger_client import LoggerConnection
+
+LOG_FILE = 'access.log'
 
 
 class LoggerBuilder:
@@ -10,17 +14,17 @@ class LoggerBuilder:
     def create_table(self, table):
         new_table = f"""
                CREATE TABLE if not exists `{table}` (
-                 `id` smallint(6) NOT NULL AUTO_INCREMENT,
-                 remote_addr char(20) NOT NULL,
-                 remote_user char(20) NOT NULL,
+                 `id` integer NOT NULL AUTO_INCREMENT,
+                 remote_addr char(50) NOT NULL,
+                 remote_user char(200) NOT NULL,
                  time_local char(50) NOT NULL,
                  method char(20) NOT NULL,
-                 url char(20) NOT NULL,
+                 url char(100) NOT NULL,
                  protocol char(20) NOT NULL,
                  status integer NOT NULL,
                  body_bytes_sent integer NOT NULL,
-                 http_referer char(20) NOT NULL,
-                 http_user_agent char(200) NOT NULL,
+                 http_referer char(100) NOT NULL,
+                 http_user_agent char(250) NOT NULL,
                  PRIMARY KEY (`id`)
                ) CHARSET=utf8
            """
@@ -182,18 +186,28 @@ def write_in_db(data):
 
 
 if __name__ == '__main__':
-    path = input()
+
+    path = input('Give me path to directory with logs or full path to log file: ')
+
+    if path and path[0] == '~':
+        path = os.path.expanduser(path)
 
     if not path:
-        path = './access.log'
-    elif path[-1] == '/':
-        path += 'access.log'
+        path = ''
+        listdir = os.listdir(path='./')
+    elif path[-1] != '/':
+        path += '/'
+        listdir = os.listdir(path=path)
     else:
-        path += '/access.log'
+        listdir = os.listdir(path=path)
 
-    with open(path) as file:
-        logs = file.readlines()
-        write_in_db(logs)
+    list_logs_file = [path + i for i in listdir if i[-3: len(i)] == 'log']
 
+    for path_file in list_logs_file:
+
+        with open(path_file) as file:
+            logs = file.readlines()
+            name = f'{path_file[path_file.rfind("/")+1:len(path_file)-4]}_report'
+            write_in_db(logs)
 
 

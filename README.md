@@ -1,12 +1,13 @@
-#2020-1-Atom-QA-Python-V-Askretkova
-
-#### Homework 1 
+# 2020-1-Atom-QA-Python-V-Askretkova
+### Итоговый проект доступен в репозитории https://github.com/ValentinaAsk/Technoatom-qa-project
+***
+### Homework 1 
 * тестирования основных структур данных python.
 
-#### Homework 2 
+### Homework 2 
 * тестирование https://target.my.com (ui, api)
 
-#### Homework 3 
+### Homework 3 
 * реализация mock сервера на flask
 * реализация HTTP клиент с использованием библиотеки socket
 * логгер nginx
@@ -14,4 +15,3 @@
 * управлние удаленной машиной по ssh и тестирование 
 * настройку базовых демонов Linux
 
-### Итоговый проект доступен в репозитории https://github.com/ValentinaAsk/Technoatom-qa-project

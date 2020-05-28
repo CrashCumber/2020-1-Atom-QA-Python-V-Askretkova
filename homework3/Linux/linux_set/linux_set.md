@@ -1,4 +1,6 @@
+
 # Настройка линукса
+
 1. вход в вирутуальную машину под рутом
 2. установка selinux `yum install –y policycoreutils-python`
 

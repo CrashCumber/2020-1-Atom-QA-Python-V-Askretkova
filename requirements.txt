@@ -18,7 +18,7 @@ requests==2.23.0
 selenium==3.141.0
 six==1.14.0
 typed-ast==1.4.1
-urllib3==1.25.8
+urllib3==1.26.5
 wcwidth==0.1.8
 wrapt==1.11.2
 zipp==3.0.0
@@ -44,7 +44,7 @@ pytest-xdist==1.31.0
 requests==2.23.0
 selenium==3.141.0
 six==1.14.0
-urllib3==1.25.8
+urllib3==1.26.5
 wcwidth==0.1.8
 webdriver-manager==2.3.0
 allure-pytest==2.8.12
@@ -69,6 +69,6 @@ pytest-xdist==1.31.0
 requests==2.23.0
 selenium==3.141.0
 six==1.14.0
-urllib3==1.25.8
+urllib3==1.26.5
 wcwidth==0.1.8
 webdriver-manager==2.3.0
